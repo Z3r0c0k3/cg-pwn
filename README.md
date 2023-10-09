@@ -5,7 +5,7 @@
 ## docker 컨테이너 생성
 
 ```bash
-docker run -d -p 2023:22 ghcr.io/zeroday2162/2023-cg-pwn:latest
+docker run -d -p 2023:22 --name new_pwn ghcr.io/zeroday2162/2023-cg-pwn:latest
 ```
 
 2023 포트를 이용해 ssh로 서버에 접근이 가능하며, root와 user01 ~ 10의 유저가 설정되어 있습니다.
