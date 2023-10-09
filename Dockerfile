@@ -21,9 +21,9 @@ RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo 'root:zerocoke' | chpasswd
 RUN mkdir -p /run/sshd
 
-RUN for i in {01..10}; do \
-      useradd -m user$$i -s /bin/bash; \
-      echo "user$$i:abc1234#" | chpasswd; \
+RUN for i in `seq 1 10`; do \
+      useradd -m user$i -s /bin/bash; \
+      echo "user$i:abc1234#" | chpasswd; \
     done
 
 RUN echo '#!/bin/bash' > /start.sh
