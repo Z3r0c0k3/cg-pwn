@@ -24,6 +24,7 @@ RUN mkdir -p /run/sshd
 RUN for i in `seq -w 1 10`; do \
       useradd -m user$i -s /bin/bash; \
       echo "user$i:abc1234#" | chpasswd; \
+      cp /root/.gdbinit /home/user$i/.gdbinit && chown user$i:user$i /home/user$i/.gdbinit; \
     done
 
 RUN echo '#!/bin/bash' > /start.sh
