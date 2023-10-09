@@ -19,6 +19,7 @@ RUN gem install one_gadget
 
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 RUN echo 'root:zerocoke' | chpasswd
+RUN mkdir -p /run/sshd
 
 RUN for i in {01..10}; do \
       useradd -m user$$i -s /bin/bash; \
