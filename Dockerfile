@@ -24,7 +24,9 @@ RUN mkdir -p /run/sshd
 RUN for i in `seq -w 1 10`; do \
       useradd -m user$i -s /bin/bash; \
       echo "user$i:abc1234#" | chpasswd; \
-      cp /root/.gdbinit /home/user$i/.gdbinit && chown user$i:user$i /home/user$i/.gdbinit; \
+      echo "source /home/user$i/peda/peda.py" > /home/user$i/.gdbinit; \
+      chown user$i:user$i /home/user$i/.gdbinit; \
+      cp -r /root/peda /home/user$i/peda && chown -R user$i:user$i /home/user$i/peda; \
     done
 
 RUN echo '#!/bin/bash' > /start.sh
