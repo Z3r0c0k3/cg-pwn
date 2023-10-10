@@ -4,8 +4,16 @@
 
 ## docker 컨테이너 생성
 
+### ubuntu 22.04
+
 ```bash
-docker run -d -p 2023:22 --name new_pwn ghcr.io/zeroday2162/2023-cg-pwn:latest
+docker run -d -p 2023:22 --name new_pwn_22.04 ghcr.io/zeroday2162/2023-cg-pwn:22.04
+```
+
+### ubuntu 20.04
+
+```bash
+docker run -d -p 2023:22 --name new_pwn_20.04 ghcr.io/zeroday2162/2023-cg-pwn:20.04
 ```
 
 2023 포트를 이용해 ssh로 서버에 접근이 가능하며, root와 user01 ~ 10의 유저가 설정되어 있습니다.
