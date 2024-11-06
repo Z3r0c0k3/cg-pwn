@@ -11,6 +11,7 @@ COPY peda_auto_set.sh /root/peda_auto_set.sh
 
 RUN apt-get update && \
     apt-get install -y \
+    file \
     gdb \
     python3 \
     python3-pip \
