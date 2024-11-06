@@ -7,6 +7,7 @@ ENV USER_COUNT=$USER_COUNT
 
 COPY PWNABLE /app/PWNABLE
 COPY PWNABLE2 /app/PWNABLE2
+COPY peda_auto_set.sh /root/peda_auto_set.sh
 
 RUN apt-get update && apt-get install -y \
     gdb \
