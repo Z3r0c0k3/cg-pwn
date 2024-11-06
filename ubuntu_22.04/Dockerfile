@@ -9,7 +9,8 @@ COPY PWNABLE /app/PWNABLE
 COPY PWNABLE2 /app/PWNABLE2
 COPY peda_auto_set.sh /root/peda_auto_set.sh
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && \
+    apt-get install -y \
     gdb \
     python3 \
     python3-pip \
@@ -20,8 +21,12 @@ RUN apt-get update && apt-get install -y \
     ruby \
     net-tools \
     netcat \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+    curl && \
+    if [ "$(dpkg --print-architecture)" = "amd64" ]; then \
+    apt-get install -y gcc-multilib; \
+    fi && \
+    rm -rf /var/lib/apt/lists/*
+
 
 RUN pip3 install pwntools
 RUN git clone https://github.com/longld/peda.git ~/peda && echo "source ~/peda/peda.py" >> ~/.gdbinit
