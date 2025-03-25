@@ -49,6 +49,8 @@ RUN pip3 install pwntools
 # Pre-install elftools version 1.1.3 to satisfy dependency for Ruby 2.5.0, then install one_gadget version 1.9.0
 RUN gem install elftools -v 1.1.3 && gem install one_gadget -v 1.9.0
 
+RUN git clone https://github.com/longld/peda.git ~/peda && echo "source ~/peda/peda.py" >> ~/.gdbinit
+
 COPY PWNABLE /app/PWNABLE
 COPY PWNABLE2 /app/PWNABLE2
 COPY peda_auto_set.sh /root/peda_auto_set.sh
