@@ -54,6 +54,7 @@ RUN git clone https://github.com/longld/peda.git ~/peda && echo "source ~/peda/p
 COPY PWNABLE /app/PWNABLE
 COPY PWNABLE2 /app/PWNABLE2
 COPY peda_auto_set.sh /root/peda_auto_set.sh
+COPY psem.sh /root/psem.sh
 
 RUN chmod +x /root/peda_auto_set.sh
 
